@@ -1,0 +1,134 @@
+01-jul-2017 11:36:09 INFO  com.apptriggergenerator.triggergenerator.utils.dlgDataBaseConnection.main : Initializing Application ...
+01-jul-2017 11:36:15 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : select schema_name from schemata
+01-jul-2017 11:36:15 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : select table_name from tables where table_schema = 'information_schema'
+01-jul-2017 11:36:15 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : SELECT c.column_name, CONCAT(LCASE(LEFT(c.column_name,1)),SUBSTRING(c.column_name,2)),
+CASE c.is_nullable WHEN 'NO' THEN 'false' ELSE 'true' END nullable, c.data_type, IFNULL(IFNULL(c.CHARACTER_MAXIMUM_LENGTH, c.NUMERIC_PRECISION),0) longitud,
+IFNULL(c.numeric_scale,'0'), c.column_key
+FROM COLUMNS c WHERE c.table_schema = 'information_schema' AND c.table_name = 'CHARACTER_SETS' ORDER BY c.ORDINAL_POSITION
+01-jul-2017 11:36:15 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : select table_name from tables where table_schema = 'information_schema' and table_name <> 'CHARACTER_SETS'
+01-jul-2017 11:36:15 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : select table_name from tables where table_schema = 'information_schema' and table_name <> 'CHARACTER_SETS'
+01-jul-2017 11:36:18 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : select table_name from tables where table_schema = 'appmodulobasico'
+01-jul-2017 11:36:18 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : SELECT c.column_name, CONCAT(LCASE(LEFT(c.column_name,1)),SUBSTRING(c.column_name,2)),
+CASE c.is_nullable WHEN 'NO' THEN 'false' ELSE 'true' END nullable, c.data_type, IFNULL(IFNULL(c.CHARACTER_MAXIMUM_LENGTH, c.NUMERIC_PRECISION),0) longitud,
+IFNULL(c.numeric_scale,'0'), c.column_key
+FROM COLUMNS c WHERE c.table_schema = 'appmodulobasico' AND c.table_name = 'artbl_aestudiantes' ORDER BY c.ORDINAL_POSITION
+01-jul-2017 11:36:18 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : select table_name from tables where table_schema = 'appmodulobasico' and table_name <> 'artbl_aestudiantes'
+01-jul-2017 11:36:18 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : select table_name from tables where table_schema = 'appmodulobasico' and table_name <> 'artbl_aestudiantes'
+01-jul-2017 11:36:18 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : SELECT iModulo_id, sModulo_nm FROM appmodulobasico.ms_tblModulos WHERE iEstado_fl = '01' AND  iEliminado_fl = '01'
+01-jul-2017 11:36:18 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : SELECT iPrograma_id, sPrograma_nm FROM appmodulobasico.ms_tblProgramas WHERE iTPrograma_fl = '02' AND iModulo_id = null ORDER BY iPrograma_order
+01-jul-2017 11:36:19 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : SELECT IFNULL(MAX(iPrograma_order),0) FROM appmodulobasico.ms_tblProgramas WHERE iTPrograma_fl = '04' AND iModulo_id = null
+01-jul-2017 11:36:25 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : SELECT c.column_name, CONCAT(LCASE(LEFT(c.column_name,1)),SUBSTRING(c.column_name,2)),
+CASE c.is_nullable WHEN 'NO' THEN 'false' ELSE 'true' END nullable, c.data_type, IFNULL(IFNULL(c.CHARACTER_MAXIMUM_LENGTH, c.NUMERIC_PRECISION),0) longitud,
+IFNULL(c.numeric_scale,'0'), c.column_key
+FROM COLUMNS c WHERE c.table_schema = 'appmodulobasico' AND c.table_name = 'intbl_errores' ORDER BY c.ORDINAL_POSITION
+01-jul-2017 11:36:25 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : select table_name from tables where table_schema = 'appmodulobasico' and table_name <> 'intbl_errores'
+01-jul-2017 11:36:25 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : SELECT IFNULL(MAX(iPrograma_order),0) FROM appmodulobasico.ms_tblProgramas WHERE iTPrograma_fl = '04' AND iModulo_id = null
+01-jul-2017 11:36:25 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : select table_name from tables where table_schema = 'appmodulobasico' and table_name <> 'intbl_errores'
+01-jul-2017 11:36:25 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : SELECT IFNULL(MAX(iPrograma_order),0) FROM appmodulobasico.ms_tblProgramas WHERE iTPrograma_fl = '04' AND iModulo_id = null
+01-jul-2017 11:36:37 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : SELECT iPrograma_id, sPrograma_nm FROM appmodulobasico.ms_tblProgramas WHERE iTPrograma_fl = '02' AND iModulo_id = 36 ORDER BY iPrograma_order
+01-jul-2017 11:36:37 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : SELECT IFNULL(MAX(iPrograma_order),0) FROM appmodulobasico.ms_tblProgramas WHERE iTPrograma_fl = '04' AND iModulo_id = 36
+01-jul-2017 11:36:51 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : SELECT IFNULL(MAX(iPrograma_order),0) FROM appmodulobasico.ms_tblProgramas WHERE iTPrograma_fl = '04' AND iModulo_id = 36
+01-jul-2017 11:36:57 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : select table_name from tables where table_schema = 'appmodulobasico' and table_name <> 'intbl_errores'
+01-jul-2017 11:36:57 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : SELECT IFNULL(MAX(iPrograma_order),0) FROM appmodulobasico.ms_tblProgramas WHERE iTPrograma_fl = '04' AND iModulo_id = 36
+01-jul-2017 11:37:07 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : SELECT COLUMN_NAME FROM COLUMNS WHERE TABLE_SCHEMA = 'appmodulobasico' AND TABLE_NAME = 'intbl_integracion' AND COLUMN_KEY = 'PRI'
+01-jul-2017 11:37:09 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : SELECT IFNULL(MAX(iPrograma_order),0) FROM appmodulobasico.ms_tblProgramas WHERE iTPrograma_fl = '04' AND iModulo_id = 36
+01-jul-2017 11:41:25 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : Exception found : D:\Mapirisoft\workspace\AppModBasicoWeb\src\com\appmodbasicoweb\common\constants\AppCromisoftWebConstants.java (El sistema no puede encontrar el archivo especificado)
+01-jul-2017 11:41:25 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : Cause : null
+01-jul-2017 11:41:25 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : Message : D:\Mapirisoft\workspace\AppModBasicoWeb\src\com\appmodbasicoweb\common\constants\AppCromisoftWebConstants.java (El sistema no puede encontrar el archivo especificado)
+01-jul-2017 11:41:25 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : ***********************
+01-jul-2017 11:41:25 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.io.FileInputStream.open(Native Method)
+01-jul-2017 11:41:25 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.io.FileInputStream.<init>(Unknown Source)
+01-jul-2017 11:41:25 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.util.Scanner.<init>(Unknown Source)
+01-jul-2017 11:41:25 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : com.apptriggergenerator.triggergenerator.utils.EditTextFiles.findSpecificContentOfLine(EditTextFiles.java:339)
+01-jul-2017 11:41:25 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : com.apptriggergenerator.triggergenerator.utils.EditTextFiles.searchAndAddToFile(EditTextFiles.java:438)
+01-jul-2017 11:41:25 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : com.apptriggergenerator.triggergenerator.utils.frmMapirisoftGenerator.createFile(frmMapirisoftGenerator.java:1443)
+01-jul-2017 11:41:25 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : com.apptriggergenerator.triggergenerator.utils.frmMapirisoftGenerator.jButton2ActionActionPerformed(frmMapirisoftGenerator.java:1097)
+01-jul-2017 11:41:25 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : com.apptriggergenerator.triggergenerator.utils.frmMapirisoftGenerator.access$17(frmMapirisoftGenerator.java:1093)
+01-jul-2017 11:41:25 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : com.apptriggergenerator.triggergenerator.utils.frmMapirisoftGenerator$18.actionPerformed(frmMapirisoftGenerator.java:827)
+01-jul-2017 11:41:25 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : javax.swing.AbstractButton.fireActionPerformed(Unknown Source)
+01-jul-2017 11:41:25 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : javax.swing.AbstractButton$Handler.actionPerformed(Unknown Source)
+01-jul-2017 11:41:25 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : javax.swing.DefaultButtonModel.fireActionPerformed(Unknown Source)
+01-jul-2017 11:41:25 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : javax.swing.DefaultButtonModel.setPressed(Unknown Source)
+01-jul-2017 11:41:25 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : javax.swing.plaf.basic.BasicButtonListener.mouseReleased(Unknown Source)
+01-jul-2017 11:41:25 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.Component.processMouseEvent(Unknown Source)
+01-jul-2017 11:41:25 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : javax.swing.JComponent.processMouseEvent(Unknown Source)
+01-jul-2017 11:41:25 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.Component.processEvent(Unknown Source)
+01-jul-2017 11:41:25 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.Container.processEvent(Unknown Source)
+01-jul-2017 11:41:25 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.Component.dispatchEventImpl(Unknown Source)
+01-jul-2017 11:41:25 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.Container.dispatchEventImpl(Unknown Source)
+01-jul-2017 11:41:25 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.Component.dispatchEvent(Unknown Source)
+01-jul-2017 11:41:25 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.LightweightDispatcher.retargetMouseEvent(Unknown Source)
+01-jul-2017 11:41:25 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.LightweightDispatcher.processMouseEvent(Unknown Source)
+01-jul-2017 11:41:25 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.LightweightDispatcher.dispatchEvent(Unknown Source)
+01-jul-2017 11:41:25 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.Container.dispatchEventImpl(Unknown Source)
+01-jul-2017 11:41:25 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.Window.dispatchEventImpl(Unknown Source)
+01-jul-2017 11:41:25 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.Component.dispatchEvent(Unknown Source)
+01-jul-2017 11:41:25 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.EventQueue.dispatchEventImpl(Unknown Source)
+01-jul-2017 11:41:25 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.EventQueue.access$400(Unknown Source)
+01-jul-2017 11:41:25 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.EventQueue$2.run(Unknown Source)
+01-jul-2017 11:41:25 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.EventQueue$2.run(Unknown Source)
+01-jul-2017 11:41:25 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.security.AccessController.doPrivileged(Native Method)
+01-jul-2017 11:41:25 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.security.AccessControlContext$1.doIntersectionPrivilege(Unknown Source)
+01-jul-2017 11:41:25 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.security.AccessControlContext$1.doIntersectionPrivilege(Unknown Source)
+01-jul-2017 11:41:25 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.EventQueue$3.run(Unknown Source)
+01-jul-2017 11:41:25 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.EventQueue$3.run(Unknown Source)
+01-jul-2017 11:41:25 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.security.AccessController.doPrivileged(Native Method)
+01-jul-2017 11:41:25 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.security.AccessControlContext$1.doIntersectionPrivilege(Unknown Source)
+01-jul-2017 11:41:25 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.EventQueue.dispatchEvent(Unknown Source)
+01-jul-2017 11:41:25 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.EventDispatchThread.pumpOneEventForFilters(Unknown Source)
+01-jul-2017 11:41:25 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.EventDispatchThread.pumpEventsForFilter(Unknown Source)
+01-jul-2017 11:41:25 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.EventDispatchThread.pumpEventsForHierarchy(Unknown Source)
+01-jul-2017 11:41:25 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+01-jul-2017 11:41:25 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+01-jul-2017 11:41:25 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.EventDispatchThread.run(Unknown Source)
+01-jul-2017 11:41:25 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : ***********************
+01-jul-2017 11:41:25 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : Exception found : D:\Mapirisoft\workspace\AppModBasicoWeb\integracion\com\appmodbasicoweb\integracion\controllers\Intbl_integracionController.java (El sistema no puede encontrar el archivo especificado)
+01-jul-2017 11:41:25 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : Cause : null
+01-jul-2017 11:41:25 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : Message : D:\Mapirisoft\workspace\AppModBasicoWeb\integracion\com\appmodbasicoweb\integracion\controllers\Intbl_integracionController.java (El sistema no puede encontrar el archivo especificado)
+01-jul-2017 11:41:25 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : ***********************
+01-jul-2017 11:41:25 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.io.FileInputStream.open(Native Method)
+01-jul-2017 11:41:25 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.io.FileInputStream.<init>(Unknown Source)
+01-jul-2017 11:41:25 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.util.Scanner.<init>(Unknown Source)
+01-jul-2017 11:41:25 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : com.apptriggergenerator.triggergenerator.utils.EditTextFiles.findSpecificContentOfLine(EditTextFiles.java:339)
+01-jul-2017 11:41:25 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : com.apptriggergenerator.triggergenerator.utils.EditTextFiles.searchLineCOntentAndAddToFile(EditTextFiles.java:447)
+01-jul-2017 11:41:25 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : com.apptriggergenerator.triggergenerator.utils.frmMapirisoftGenerator.createFile(frmMapirisoftGenerator.java:1461)
+01-jul-2017 11:41:25 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : com.apptriggergenerator.triggergenerator.utils.frmMapirisoftGenerator.jButton2ActionActionPerformed(frmMapirisoftGenerator.java:1097)
+01-jul-2017 11:41:25 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : com.apptriggergenerator.triggergenerator.utils.frmMapirisoftGenerator.access$17(frmMapirisoftGenerator.java:1093)
+01-jul-2017 11:41:25 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : com.apptriggergenerator.triggergenerator.utils.frmMapirisoftGenerator$18.actionPerformed(frmMapirisoftGenerator.java:827)
+01-jul-2017 11:41:25 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : javax.swing.AbstractButton.fireActionPerformed(Unknown Source)
+01-jul-2017 11:41:25 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : javax.swing.AbstractButton$Handler.actionPerformed(Unknown Source)
+01-jul-2017 11:41:25 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : javax.swing.DefaultButtonModel.fireActionPerformed(Unknown Source)
+01-jul-2017 11:41:25 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : javax.swing.DefaultButtonModel.setPressed(Unknown Source)
+01-jul-2017 11:41:25 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : javax.swing.plaf.basic.BasicButtonListener.mouseReleased(Unknown Source)
+01-jul-2017 11:41:25 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.Component.processMouseEvent(Unknown Source)
+01-jul-2017 11:41:25 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : javax.swing.JComponent.processMouseEvent(Unknown Source)
+01-jul-2017 11:41:25 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.Component.processEvent(Unknown Source)
+01-jul-2017 11:41:25 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.Container.processEvent(Unknown Source)
+01-jul-2017 11:41:25 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.Component.dispatchEventImpl(Unknown Source)
+01-jul-2017 11:41:25 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.Container.dispatchEventImpl(Unknown Source)
+01-jul-2017 11:41:25 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.Component.dispatchEvent(Unknown Source)
+01-jul-2017 11:41:25 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.LightweightDispatcher.retargetMouseEvent(Unknown Source)
+01-jul-2017 11:41:25 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.LightweightDispatcher.processMouseEvent(Unknown Source)
+01-jul-2017 11:41:25 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.LightweightDispatcher.dispatchEvent(Unknown Source)
+01-jul-2017 11:41:25 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.Container.dispatchEventImpl(Unknown Source)
+01-jul-2017 11:41:25 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.Window.dispatchEventImpl(Unknown Source)
+01-jul-2017 11:41:25 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.Component.dispatchEvent(Unknown Source)
+01-jul-2017 11:41:25 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.EventQueue.dispatchEventImpl(Unknown Source)
+01-jul-2017 11:41:25 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.EventQueue.access$400(Unknown Source)
+01-jul-2017 11:41:25 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.EventQueue$2.run(Unknown Source)
+01-jul-2017 11:41:25 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.EventQueue$2.run(Unknown Source)
+01-jul-2017 11:41:25 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.security.AccessController.doPrivileged(Native Method)
+01-jul-2017 11:41:25 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.security.AccessControlContext$1.doIntersectionPrivilege(Unknown Source)
+01-jul-2017 11:41:25 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.security.AccessControlContext$1.doIntersectionPrivilege(Unknown Source)
+01-jul-2017 11:41:25 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.EventQueue$3.run(Unknown Source)
+01-jul-2017 11:41:25 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.EventQueue$3.run(Unknown Source)
+01-jul-2017 11:41:25 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.security.AccessController.doPrivileged(Native Method)
+01-jul-2017 11:41:25 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.security.AccessControlContext$1.doIntersectionPrivilege(Unknown Source)
+01-jul-2017 11:41:25 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.EventQueue.dispatchEvent(Unknown Source)
+01-jul-2017 11:41:25 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.EventDispatchThread.pumpOneEventForFilters(Unknown Source)
+01-jul-2017 11:41:25 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.EventDispatchThread.pumpEventsForFilter(Unknown Source)
+01-jul-2017 11:41:25 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.EventDispatchThread.pumpEventsForHierarchy(Unknown Source)
+01-jul-2017 11:41:25 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+01-jul-2017 11:41:25 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+01-jul-2017 11:41:25 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.EventDispatchThread.run(Unknown Source)
+01-jul-2017 11:41:25 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : ***********************

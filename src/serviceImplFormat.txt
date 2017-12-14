@@ -1,0 +1,77 @@
+package ${ejbPackage_name}.service.impls;
+
+import java.util.Calendar;
+import java.math.BigDecimal;
+import java.util.List;
+
+import ${ejbPackage_name}.dao.${domain_name}Dao;
+import ${ejbPackage_name}.dao.impls.${domain_name}DaoImpl;
+import ${ejbPackage_name}.service.${domain_name}Service;
+import ${commonPackage}.constants.${commonConstantsName};
+import ${domainPackage}.${table_name};
+
+public class ${domain_name}ServiceImpl implements ${domain_name}Service {
+
+	${domain_name}Dao dao = new ${domain_name}DaoImpl();
+
+	public List<${table_name}> listAll${domain_name}(String... iEstado_fl){
+		return dao.listAll(${commonConstantsName}.DELETED_VALUE_FALSE, iEstado_fl);
+	}
+		
+	public List<Object> listAll${domain_name}Pk(String... iEstado_fl){
+		return dao.listAllPk(${commonConstantsName}.DELETED_VALUE_FALSE, iEstado_fl);
+	}
+
+	public long totalRecords${domain_name}(String... iEstado_fl){
+		return dao.countTotalRecords(${commonConstantsName}.DELETED_VALUE_FALSE, iEstado_fl);
+	}
+
+	public ${table_name} insert${domain_name}(String sCreated_by${updateFieldsList}){
+		${table_name} newObject = new ${table_name}();
+		newObject.setSCreated_by(sCreated_by);
+		newObject.setIEliminado_fl(${commonConstantsName}.DELETED_VALUE_FALSE);
+		newObject.setIConcurrencia_id(${commonConstantsName}.CONCURRENCY_INITIAL_VALUE);
+		newObject.setIEstado_fl(${commonConstantsName}.STATUS_VALUE_ACTIVE);
+		${fn:for}
+		newObject.set${method_name}(${column_name});
+		/${fn:for}
+		return dao.save(newObject);
+	}
+
+	public boolean update${domain_name}(${pk_type} ${pk_name}, String sCreated_by, int iConcurrencia_id${updateFieldsList}){
+		if (dao.getConcurrencyById(${pk_name}) == iConcurrencia_id) {
+			return dao.updateByQuery(${pk_name}, sCreated_by, iConcurrencia_id + 1${updateFieldsListSimple}) != 0;
+		} else {
+			return false;
+		}
+	}
+
+	public boolean delete${domain_name}(${pk_type} ${pk_name}, String sCreated_by, int iConcurrencia_id) {
+		if (dao.getConcurrencyById(${pk_name}) == iConcurrencia_id) {
+			return dao.deleteLogicalByQuery(${pk_name}, ${commonConstantsName}.DELETED_VALUE_TRUE, sCreated_by, iConcurrencia_id + 1) != 0;
+		} else {
+			return false;
+		}
+	}
+
+	public ${table_name} getById${domain_name}(${pk_type} ${pk_name}) {
+		return dao.getById(${pk_name});
+	}
+	
+	public int getConcurrencyById${domain_name}(${pk_type} ${pk_name}) {
+		return dao.getConcurrencyById(${pk_name});
+	}
+	
+	//Master Detail
+	public List<${table_name}> listAll${domain_name}MD(Object mdPkValue, String... iEstado_fl){
+		return dao.listAllMD(mdPkValue, ${commonConstantsName}.DELETED_VALUE_FALSE, iEstado_fl);
+	}
+		
+	public List<Object> listAll${domain_name}PkMD(Object mdPkValue, String... iEstado_fl){
+		return dao.listAllPkMD(mdPkValue, ${commonConstantsName}.DELETED_VALUE_FALSE, iEstado_fl);
+	}
+
+	public long totalRecords${domain_name}MD(Object mdPkValue, String... iEstado_fl){
+		return dao.countTotalRecordsMD(mdPkValue, ${commonConstantsName}.DELETED_VALUE_FALSE, iEstado_fl);
+	}
+}

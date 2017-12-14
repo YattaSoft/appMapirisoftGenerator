@@ -1,0 +1,52 @@
+package ${webPackage_name}.${webModule_name}.beans;
+
+import java.util.List;
+import java.util.Map;
+import java.util.Calendar;
+import java.math.BigDecimal;
+
+public class ${domain_name}Bean {
+
+	private ${pk_type} pkValue;
+	
+	${fn:for}
+	private ${beanRecordColumnType} ${column_name};
+	/${fn:for}
+	private int iConcurrencia_id;
+	private List<${domain_name}BeanRecord> list;
+	
+	public ${pk_type} getPkValue() {
+		return this.pkValue;
+	}
+	
+	public void setPkValue(${pk_type} pkValue) {
+		this.pkValue = pkValue;
+	}
+	
+	${fn:for}
+	public ${beanRecordColumnType} get${method_name}() {
+		return this.${column_name};
+	}
+	
+	public void set${method_name}(${beanRecordColumnType} ${column_name}) {
+		this.${column_name} = ${column_name};
+	}
+	/${fn:for}
+
+	public int getiConcurrencia_id() {
+        return iConcurrencia_id;
+    }
+
+    public void setiConcurrencia_id(int iConcurrencia_id) {
+        this.iConcurrencia_id = iConcurrencia_id;
+    }
+	
+	public List<${domain_name}BeanRecord> getList() {
+		return list;
+	}
+
+	public void setList(List<${domain_name}BeanRecord> list) {
+		this.list = list;
+	}
+
+}

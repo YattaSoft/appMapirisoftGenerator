@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC        
+"-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"        
+"http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>
+	<definition name="list${domain_name}" extends="base.definition">
+		<put-attribute name="title" value="List ${domain_name}" />
+		<put-attribute name="body" value="/WEB-INF/jsp/${webModule_name}/list${domain_name}.jsp" />
+	</definition>
+	<definition name="add${domain_name}" extends="base.definition">
+		<put-attribute name="title" value="Administrar ${domain_name}" />
+		<put-attribute name="body" value="/WEB-INF/jsp/${webModule_name}/add${domain_name}.jsp" />
+	</definition>
+</tiles-definitions>

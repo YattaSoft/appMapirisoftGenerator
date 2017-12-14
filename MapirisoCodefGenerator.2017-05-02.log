@@ -1,0 +1,9 @@
+02-may-2017 10:09:33 INFO  com.apptriggergenerator.triggergenerator.utils.dlgDataBaseConnection.main : Initializing Application ...
+02-may-2017 10:09:38 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : select schema_name from schemata
+02-may-2017 10:09:38 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : select table_name from tables where table_schema = 'information_schema'
+02-may-2017 10:09:38 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : SELECT c.column_name, CONCAT(LCASE(LEFT(c.column_name,1)),SUBSTRING(c.column_name,2)),
+CASE c.is_nullable WHEN 'NO' THEN 'false' ELSE 'true' END nullable, c.data_type, IFNULL(IFNULL(c.CHARACTER_MAXIMUM_LENGTH, c.NUMERIC_PRECISION),0) longitud,
+IFNULL(c.numeric_scale,'0'), c.column_key
+FROM COLUMNS c WHERE c.table_schema = 'information_schema' AND c.table_name = 'CHARACTER_SETS' ORDER BY c.ORDINAL_POSITION
+02-may-2017 10:09:38 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : select table_name from tables where table_schema = 'information_schema' and table_name <> 'CHARACTER_SETS'
+02-may-2017 10:09:38 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : select table_name from tables where table_schema = 'information_schema' and table_name <> 'CHARACTER_SETS'

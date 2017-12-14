@@ -1,0 +1,60 @@
+package ${webPackage_name}.${webModule_name}.beans;
+
+import java.util.Calendar;
+import java.math.BigDecimal;
+
+public class ${domain_name}BeanRecord {
+
+	private boolean selected;
+	
+	private ${pk_type} pkValue;
+	
+	${fn:for}
+	private ${beanRecordColumnType} ${column_name};
+	/${fn:for}
+	private String iEstado_fl;
+		
+	private int iConcurrencia_id;
+	
+	public boolean isSelected() {
+		return selected;
+	}
+
+	public void setSelected(boolean selected) {
+		this.selected = selected;
+	}
+	
+	public ${pk_type} getPkValue() {
+		return this.pkValue;
+	}
+	
+	public void setPkValue(${pk_type} pkValue) {
+		this.pkValue = pkValue;
+	}
+	
+	${fn:for}
+	public ${beanRecordColumnType} get${method_name}() {
+		return this.${column_name};
+	}
+	
+	public void set${method_name}(${beanRecordColumnType} ${column_name}) {
+		this.${column_name} = ${column_name};
+	}
+	/${fn:for}
+	public String getiEstado_fl() {
+		return this.iEstado_fl;
+	}
+
+	public void setiEstado_fl(String iEstado_fl) {
+		this.iEstado_fl = iEstado_fl;
+	}
+	
+	public int getiConcurrencia_id() {
+        return iConcurrencia_id;
+    }
+
+    public void setiConcurrencia_id(int iConcurrencia_id) {
+        this.iConcurrencia_id = iConcurrencia_id;
+    }
+
+}

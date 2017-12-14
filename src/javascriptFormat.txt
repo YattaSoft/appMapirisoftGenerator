@@ -1,0 +1,6 @@
+${javascript_datepicker_format}
+var fieldsToValidateNull${domain_name} = [ ${javascript_not_null_fields} ];
+var fieldsToValidateFormat${domain_name} = [ ${javascript_verify_fields} ];
+function validate${domain_name}() {
+	return verifyNotNullValuesRemastered(fieldsToValidateNull${domain_name}) && verifyFormatOfValuesRemastered(fieldsToValidateFormat${domain_name});
+}

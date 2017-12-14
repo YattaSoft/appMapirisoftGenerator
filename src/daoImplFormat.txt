@@ -1,0 +1,67 @@
+package ${ejbPackage_name}.dao.impls;
+
+import java.util.Arrays;
+import java.util.Calendar;
+import java.math.BigDecimal;
+import java.util.List;
+
+import javax.ejb.TransactionAttribute;
+import javax.ejb.TransactionAttributeType;
+
+import ${ejbPackage_name}.common.AbstractBaseDao;
+import ${ejbPackage_name}.dao.${domain_name}Dao;
+import ${domainPackage}.${table_name};
+
+@SuppressWarnings("rawtypes")
+public class ${domain_name}DaoImpl extends AbstractBaseDao implements ${domain_name}Dao {
+
+	public List<${table_name}> listAll(String iEliminado_fl, String... iEstado_fl) {
+		return super.verifyListNamedQueryAll("${ejbPackage_name}.dao.impls.${domain_name}DaoImpl.listAll", iEliminado_fl, Arrays.asList(iEstado_fl));
+	}
+	
+	public List<Object> listAllPk(String iEliminado_fl, String... iEstado_fl) {
+		return super.verifyListNamedQueryAll("${ejbPackage_name}.dao.impls.${domain_name}DaoImpl.listAllPk", iEliminado_fl, Arrays.asList(iEstado_fl));
+	}
+
+	public long countTotalRecords(String iEliminado_fl, String... iEstado_fl) {
+		return super.verifyNamedQueryAll("${ejbPackage_name}.dao.impls.${domain_name}DaoImpl.countTotalRecords", iEliminado_fl, Arrays.asList(iEstado_fl));
+	}
+
+	@SuppressWarnings("unchecked")
+	@TransactionAttribute(TransactionAttributeType.REQUIRED)
+	public ${table_name} save(${table_name} newObject) {
+		return (${table_name}) super.store(newObject);
+	}
+	
+	public int getConcurrencyById(${pk_type} ${pk_name}) {
+		return super.verifyNamedQueryAll("${ejbPackage_name}.dao.impls.${domain_name}DaoImpl.getConcurrencyById", ${pk_name});
+	}
+
+	@TransactionAttribute(TransactionAttributeType.REQUIRED)
+	public int updateByQuery(${pk_type} ${pk_name}, String sCreated_by, int iConcurrencia_id${updateFieldsList}) {
+		return super.executeByQueryName("${ejbPackage_name}.dao.impls.${domain_name}DaoImpl.updateByQuery", ${pk_name}, sCreated_by, iConcurrencia_id${updateFieldsListSimple});
+	}
+
+	@TransactionAttribute(TransactionAttributeType.REQUIRED)
+	public int deleteLogicalByQuery(${pk_type} ${pk_name}, String iEliminado_fl, String sCreated_by, int iConcurrencia_id) {
+		return super.executeByQueryName("${ejbPackage_name}.dao.impls.${domain_name}DaoImpl.deleteLogicalByQuery", ${pk_name}, iEliminado_fl, sCreated_by, iConcurrencia_id);
+	}
+
+	public ${table_name} getById(${pk_type} ${pk_name}) {
+		return super.verifyNamedQueryAll("${ejbPackage_name}.dao.impls.${domain_name}DaoImpl.getById", ${pk_name});
+	}
+	
+	//Master Detail
+	public List<${table_name}> listAllMD(Object mdPkValue, String iEliminado_fl, String... iEstado_fl) {
+		return super.verifyListNamedQueryAll("${ejbPackage_name}.dao.impls.${domain_name}DaoImpl.listAllMD", iEliminado_fl, Arrays.asList(iEstado_fl), mdPkValue);
+	}
+	
+	public List<Object> listAllPkMD(Object mdPkValue, String iEliminado_fl, String... iEstado_fl) {
+		return super.verifyListNamedQueryAll("${ejbPackage_name}.dao.impls.${domain_name}DaoImpl.listAllPkMD", iEliminado_fl, Arrays.asList(iEstado_fl), mdPkValue);
+	}
+
+	public long countTotalRecordsMD(Object mdPkValue, String iEliminado_fl, String... iEstado_fl) {
+		return super.verifyNamedQueryAll("${ejbPackage_name}.dao.impls.${domain_name}DaoImpl.countTotalRecordsMD", iEliminado_fl, Arrays.asList(iEstado_fl), mdPkValue);
+	}
+
+}

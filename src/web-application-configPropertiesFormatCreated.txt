@@ -1,0 +1,1 @@
+				<value>${webModule_name}/${domain_name}</value>

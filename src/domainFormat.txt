@@ -1,0 +1,95 @@
+package ${domainPackage};
+
+import java.io.Serializable;
+import java.util.Calendar;
+import javax.persistence.*;
+import java.math.BigDecimal;
+
+
+/**
+ * The persistent class for the gatbl_AAulas database table.
+ * 
+ */
+@Entity
+@Table(name="${tableNameDomainName}")
+public class ${domain_name} implements Serializable {
+	private static final long serialVersionUID = 1L;
+	
+	public ${domain_name}() {
+    }
+
+	@Id
+	@TableGenerator(name = "${domain_name}", table = "ms_tblAppIdGnrtr", pkColumnName = "mtaig_genKey", valueColumnName = "mtaig_genValue", pkColumnValue = "${table_name}", initialValue = 1, allocationSize = 1)
+	@GeneratedValue(strategy = GenerationType.TABLE, generator = "${domain_name}")
+	@Column(name = "${table_pk_name}")
+	private ${pk_type} ${pk_name};
+
+	${fn:forAtributes}
+	@Column(name="${table_column_name}", nullable=${column_nullable})
+	private ${column_type} ${column_name};
+	/${fn:forAtributes}
+	
+    @Column(nullable = false)
+    private String iEstado_fl;
+    
+	@Column(nullable=false)
+	private String iEliminado_fl;
+
+	@Column(nullable=false, length=50)
+	private String sCreated_by;
+	
+	@Column(nullable=false)
+	private int iConcurrencia_id;
+	
+		
+	public ${pk_type} get${pk_method}() {
+		return this.${pk_name};
+	}
+	
+	public void set${pk_method}(${pk_type} ${pk_name}) {
+		this.${pk_name} = ${pk_name};
+	}
+	
+	${fn:for}
+	public ${column_type} get${method_name}() {
+		return this.${column_name};
+	}
+	
+	public void set${method_name}(${column_type} ${column_name}) {
+		this.${column_name} = ${column_name};
+	}
+	/${fn:for}
+    
+    public String getIEstado_fl() {
+        return this.iEstado_fl;
+    }
+
+    public void setIEstado_fl(String iEstado_fl) {
+        this.iEstado_fl = iEstado_fl;
+    }
+    
+    public String getIEliminado_fl() {
+		return this.iEliminado_fl;
+	}
+
+	public void setIEliminado_fl(String iEliminado_fl) {
+		this.iEliminado_fl = iEliminado_fl;
+	}
+    
+    public String getSCreated_by() {
+		return this.sCreated_by;
+	}
+
+	public void setSCreated_by(String sCreated_by) {
+		this.sCreated_by = sCreated_by;
+	}
+
+	public int getIConcurrencia_id() {
+		return this.iConcurrencia_id;
+	}
+
+	public void setIConcurrencia_id(int iConcurrencia_id) {
+		this.iConcurrencia_id = iConcurrencia_id;
+	}
+
+}

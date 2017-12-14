@@ -1,0 +1,60 @@
+<entity-mappings version="1.0"
+	xmlns="http://java.sun.com/xml/ns/persistence/orm" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_1_0.xsd">
+	<!--${table_name}-->
+	<named-query name="${ejbPackage_name}.dao.impls.${domain_name}DaoImpl.listAll">
+		<query>
+			<![CDATA[from ${table_name} domain where domain.iEliminado_fl=?1 and domain.iEstado_fl in (?2)]]>
+		</query>
+	</named-query>
+	<named-query name="${ejbPackage_name}.dao.impls.${domain_name}DaoImpl.listAllPk">
+		<query>
+			<![CDATA[select domain.${pk_name} from ${table_name} domain where domain.iEliminado_fl=?1 and domain.iEstado_fl in (?2)]]>
+		</query>
+	</named-query>
+	<named-query name="${ejbPackage_name}.dao.impls.${domain_name}DaoImpl.countTotalRecords">
+		<query>
+            <![CDATA[select count(*) from ${table_name} domain where domain.iEliminado_fl=?1 and domain.iEstado_fl in (?2)]]>
+        </query>
+	</named-query>
+	<named-query name="${ejbPackage_name}.dao.impls.${domain_name}DaoImpl.getConcurrencyById">
+		<query>
+			<![CDATA[select domain.iConcurrencia_id from ${table_name} domain where domain.${pk_name}=?1]]>
+		</query>
+	</named-query>
+	<named-query name="${ejbPackage_name}.dao.impls.${domain_name}DaoImpl.updateByQuery">
+		<query>
+			<![CDATA[update ${table_name} set
+			sCreated_by=?2,
+ 			iConcurrencia_id=?3${updateFieldsListQuery}
+			where ${pk_name}=?1]]>
+		</query>
+	</named-query>
+	<named-query name="${ejbPackage_name}.dao.impls.${domain_name}DaoImpl.deleteLogicalByQuery">
+		<query>
+			<![CDATA[update ${table_name} set iEliminado_fl=?2, sCreated_by=?3, iConcurrencia_id=?4 where ${pk_name}=?1]]>
+		</query>
+	</named-query>
+	<named-query name="${ejbPackage_name}.dao.impls.${domain_name}DaoImpl.getById">
+		<query>
+			<![CDATA[from ${table_name} domain where domain.${pk_name}=?1]]>
+		</query>
+	</named-query>
+	<!--Master Detail-->
+	<named-query name="${ejbPackage_name}.dao.impls.${domain_name}DaoImpl.listAllMD">
+		<query>
+			<![CDATA[from ${table_name} domain where domain.${master_detail_fk}=?3 and domain.iEliminado_fl=?1 and domain.iEstado_fl in (?2)]]>
+		</query>
+	</named-query>
+	<named-query name="${ejbPackage_name}.dao.impls.${domain_name}DaoImpl.listAllPkMD">
+		<query>
+			<![CDATA[select domain.${pk_name} from ${table_name} domain where domain.${master_detail_fk}=?3 and domain.iEliminado_fl=?1 and domain.iEstado_fl in (?2)]]>
+		</query>
+	</named-query>
+	<named-query name="${ejbPackage_name}.dao.impls.${domain_name}DaoImpl.countTotalRecordsMD">
+		<query>
+            <![CDATA[select count(*) from ${table_name} domain where domain.${master_detail_fk}=?3 and domain.iEliminado_fl=?1 and domain.iEstado_fl in (?2)]]>
+        </query>
+	</named-query>
+	<!--end of ${table_name} -->
+</entity-mappings>

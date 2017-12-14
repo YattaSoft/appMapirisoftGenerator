@@ -1,0 +1,1 @@
+				<value>/WEB-INF/config/tiles/${webModule_name}/tiles-${domain_name}.xml</value>

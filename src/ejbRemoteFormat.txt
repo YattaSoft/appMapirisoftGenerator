@@ -1,0 +1,43 @@
+package ${ejbPackage_name}.ejb;
+
+import java.util.Calendar;
+import java.math.BigDecimal;
+import java.util.List;
+
+import javax.ejb.Remote;
+
+import ${domainPackage}.${table_name};
+
+@Remote
+public interface ${application_name}${delegate_name}EjbRemote {
+
+	public void setPageNumber(int pageNumber);
+	
+	public int getDATA_PAGINATION_MAX_RESULTS_DISPLAY();
+
+	public void setDATA_PAGINATION_MAX_RESULTS_DISPLAY(int dATA_PAGINATION_MAX_RESULTS_DISPLAY);
+	
+	public List<${table_name}> listAll${domain_name}(String ... iEstado_fl);
+	
+	public List<Object> listAll${domain_name}Pk(String ... iEstado_fl);
+	
+	public long totalRecords${domain_name}(String ... iEstado_fl);
+
+	public boolean update${domain_name}(${pk_type} ${pk_name}, String sCreated_by, int iConcurrencia_id${updateFieldsList});
+
+	public ${table_name} insert${domain_name}(String sCreated_by${updateFieldsList});
+
+	public boolean delete${domain_name}(${pk_type} ${pk_name}, String sCreated_by, int iConcurrencia_id);
+
+	public ${table_name} getById${domain_name}(${pk_type} ${pk_name});
+	
+	public int getConcurrencyById${domain_name}(${pk_type} ${pk_name});
+	
+	//Master Detail
+	public List<${table_name}> listAll${domain_name}MD(Object mdPkValue, String ... iEstado_fl);
+	
+	public List<Object> listAll${domain_name}PkMD(Object mdPkValue, String ... iEstado_fl);
+	
+	public long totalRecords${domain_name}MD(Object mdPkValue, String ... iEstado_fl);
+
+}

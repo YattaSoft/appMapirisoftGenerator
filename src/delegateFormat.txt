@@ -1,0 +1,89 @@
+package ${webPackage_name}.${webModule_name}.delegates;
+
+import java.util.Calendar;
+import java.math.BigDecimal;
+import java.util.List;
+import java.util.Map;
+
+import org.apache.log4j.Logger;
+
+import ${domainPackage}.${table_name};
+import ${webPackage_name}.common.constants.${web_constants_name};
+import ${webPackage_name}.common.utility.${web_utils_name};
+import ${webPackage_name}.common.utility.${application_name}ConfigManager;
+import ${webPackage_name}.common.utility.RemoteObjCall;
+import ${ejbPackage_name}.ejb.${application_name}${delegate_name}EjbRemote;
+
+public class ${delegate_name}Delegate {
+	private static final Logger LOGGER = ${application_name}ConfigManager.getLogger(${delegate_name}Delegate.class);
+	private static ${application_name}${delegate_name}EjbRemote objEjbRemote = null;
+
+	public ${delegate_name}Delegate() {
+		if (objEjbRemote == null) {
+			LOGGER.info("Initializing " + ${web_constants_name}.EJB_${constantsIdEJB_name});
+			objEjbRemote = (${application_name}${delegate_name}EjbRemote) RemoteObjCall.remoteObj(${web_constants_name}.EJB_${constantsIdEJB_name});
+			//${web_constants_name}
+			//public static String EJB_${constantsIdEJB_name} = "${application_name}${delegate_name}Ejb";
+			//ejbConfigurationContext.xml
+			/*<bean id="${application_name}${delegate_name}Ejb" class="com.appmodbasicoweb.common.utility.AppEjbConfigurationBean">
+				<property name="providerUrl" value="jnp://localhost:1099" />
+				<property name="lookupName" value="${application_name}${delegate_name}Ejb/remote-${ejbPackage_name}.ejb.${application_name}${delegate_name}EjbRemote" />
+			</bean>*/
+		}
+	}
+	
+	// ${table_name}
+	public void setPageNumber(int pageNumber) {
+		objEjbRemote.setPageNumber(pageNumber);
+	}
+	
+	public int getDATA_PAGINATION_MAX_RESULTS_DISPLAY() {
+		return objEjbRemote.getDATA_PAGINATION_MAX_RESULTS_DISPLAY();
+	}
+	
+	public void setDATA_PAGINATION_MAX_RESULTS_DISPLAY(int dATA_PAGINATION_MAX_RESULTS_DISPLAY) {
+		objEjbRemote.setDATA_PAGINATION_MAX_RESULTS_DISPLAY(dATA_PAGINATION_MAX_RESULTS_DISPLAY);
+	}
+
+	public List<${table_name}> listAll${domain_name}(Object... iEstado_fl){
+		if(iEstado_fl[0] != null){
+            return objEjbRemote.listAll${domain_name}MD(iEstado_fl[0], ${web_utils_name}.getAllowedEstadosByUser(iEstado_fl));
+        }
+        return objEjbRemote.listAll${domain_name}(${web_utils_name}.getAllowedEstadosByUser(iEstado_fl));
+	}
+	
+	public List<Object> listAll${domain_name}Pk(Object ... iEstado_fl){
+		if(iEstado_fl[0] != null){
+            return objEjbRemote.listAll${domain_name}PkMD(iEstado_fl[0], ${web_utils_name}.getAllowedEstadosByUser(iEstado_fl));
+        }
+        return objEjbRemote.listAll${domain_name}Pk(${web_utils_name}.getAllowedEstadosByUser(iEstado_fl));
+	}
+
+	public long totalRecords${domain_name}(Object... iEstado_fl){
+		if(iEstado_fl[0] != null){
+            return objEjbRemote.totalRecords${domain_name}MD(iEstado_fl[0], ${web_utils_name}.getAllowedEstadosByUser(iEstado_fl));
+        }
+        return objEjbRemote.totalRecords${domain_name}(${web_utils_name}.getAllowedEstadosByUser(iEstado_fl));
+	}
+
+	public ${table_name} insert${domain_name}(String sCreated_by${updateFieldsList}){
+		return objEjbRemote.insert${domain_name}(sCreated_by${updateFieldsListSimple});
+	}
+
+	public boolean update${domain_name}(${pk_type} ${pk_name}, String sCreated_by, int iConcurrencia_id${updateFieldsList}){
+		return objEjbRemote.update${domain_name}(${pk_name}, sCreated_by, iConcurrencia_id${updateFieldsListSimple});
+	}
+
+	public boolean delete${domain_name}(${pk_type} ${pk_name}, String sCreated_by, int iConcurrencia_id) {
+		return objEjbRemote.delete${domain_name}(${pk_name}, sCreated_by, iConcurrencia_id);
+	}
+
+	public ${table_name} getById${domain_name}(${pk_type} ${pk_name}) {
+		return objEjbRemote.getById${domain_name}(${pk_name});
+	}
+	
+	public int getConcurrencyById${domain_name}(${pk_type} ${pk_name}) {
+		return objEjbRemote.getConcurrencyById${domain_name}(${pk_name});
+	}
+	// end ${table_name}
+}

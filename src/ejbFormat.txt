@@ -1,0 +1,88 @@
+package ${ejbPackage_name}.ejb;
+
+import java.util.Calendar;
+import java.math.BigDecimal;
+import java.util.List;
+
+import javax.ejb.Stateless;
+import javax.ejb.TransactionManagement;
+import javax.ejb.TransactionManagementType;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
+import ${domainPackage}.${table_name};
+import ${ejbPackage_name}.constants.${delegate_name}Constants;
+//Reserved For Imports
+
+@Stateless
+@TransactionManagement(TransactionManagementType.CONTAINER)
+public class ${application_name}${delegate_name}Ejb implements ${application_name}${delegate_name}EjbRemote {
+
+	@PersistenceContext(unitName = ${delegate_name}Constants.PERSISTENCE_UNIT_NAME)
+	private static EntityManager entityManager;
+	
+	public static int pageNumber = 0;
+	
+	private ${domain_name}Service service${domain_name} = new ${domain_name}ServiceImpl();
+	
+	public static EntityManager getEntityManager() {
+		return entityManager;
+	}
+	
+	public void setPageNumber(int pageNumber) {
+		this.pageNumber = pageNumber;
+	}
+	
+	public int getDATA_PAGINATION_MAX_RESULTS_DISPLAY() {
+		return ${delegate_name}Constants.DATA_PAGINATION_MAX_RESULTS_DISPLAY;
+	}
+	
+	public void setDATA_PAGINATION_MAX_RESULTS_DISPLAY(int dATA_PAGINATION_MAX_RESULTS_DISPLAY) {
+		${delegate_name}Constants.DATA_PAGINATION_MAX_RESULTS_DISPLAY = dATA_PAGINATION_MAX_RESULTS_DISPLAY;
+	}
+
+	public List<${table_name}> listAll${domain_name}(String... iEstado_fl){
+		return service${domain_name}.listAll${domain_name}(iEstado_fl);
+	}
+	
+	public List<Object> listAll${domain_name}Pk(String ... iEstado_fl){
+		return service${domain_name}.listAll${domain_name}Pk(iEstado_fl);
+	}
+	
+	public long totalRecords${domain_name}(String... iEstado_fl){
+		return service${domain_name}.totalRecords${domain_name}(iEstado_fl);
+	}
+
+	public ${table_name} insert${domain_name}(String sCreated_by${updateFieldsList}){
+		return service${domain_name}.insert${domain_name}(sCreated_by${updateFieldsListSimple});
+	}
+
+	public boolean update${domain_name}(${pk_type} ${pk_name}, String sCreated_by, int iConcurrencia_id${updateFieldsList}){
+		return service${domain_name}.update${domain_name}(${pk_name}, sCreated_by, iConcurrencia_id${updateFieldsListSimple});
+	}
+
+	public boolean delete${domain_name}(${pk_type} ${pk_name}, String sCreated_by, int iConcurrencia_id) {
+		return service${domain_name}.delete${domain_name}(${pk_name}, sCreated_by, iConcurrencia_id);
+	}
+
+	public ${table_name} getById${domain_name}(${pk_type} ${pk_name}) {
+		return service${domain_name}.getById${domain_name}(${pk_name});
+	}
+	
+	public int getConcurrencyById${domain_name}(${pk_type} ${pk_name}) {
+		return service${domain_name}.getConcurrencyById${domain_name}(${pk_name});
+	}
+	
+	//Master Detail
+	public List<${table_name}> listAll${domain_name}MD(Object mdPkValue, String... iEstado_fl){
+		return service${domain_name}.listAll${domain_name}MD(mdPkValue, iEstado_fl);
+	}
+	
+	public List<Object> listAll${domain_name}PkMD(Object mdPkValue, String ... iEstado_fl){
+		return service${domain_name}.listAll${domain_name}PkMD(mdPkValue, iEstado_fl);
+	}
+	
+	public long totalRecords${domain_name}MD(Object mdPkValue, String... iEstado_fl){
+		return service${domain_name}.totalRecords${domain_name}MD(mdPkValue, iEstado_fl);
+	}
+}

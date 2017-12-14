@@ -1,0 +1,183 @@
+package ${webPackage_name}.${webModule_name}.controllers;
+
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+import org.springframework.stereotype.Controller;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
+import org.springframework.context.MessageSource;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import ${commonPackage}.constants.${commonConstantsName};
+import ${webPackage_name}.common.constants.${web_constants_name};
+import ${commonPackage}.utility.${commons_utils_name};
+import ${domainPackage}.${table_name};
+import ${webPackage_name}.common.utility.${web_utils_name};
+import ${webPackage_name}.${webModule_name}.beans.${domain_name}Bean;
+import ${webPackage_name}.${webModule_name}.beans.${domain_name}BeanRecord;
+import ${webPackage_name}.${webModule_name}.delegates.${delegate_name}Delegate;
+
+@Controller
+public class ${domain_name}Controller {
+	private ${delegate_name}Delegate obj${delegate_name}Delegate = new ${delegate_name}Delegate();
+
+	private final String domainName = "${table_name}";
+	private final String controllerName = "${controllerName}";
+	@Autowired
+	MessageSource messageSource;
+
+	@RequestMapping("/list" + controllerName)
+	public String list${controllerName}(Model model, HttpServletRequest request) {
+		${controllerName}Bean objBean = new ${controllerName}Bean();
+		obj${delegate_name}Delegate.setPageNumber(${web_utils_name}.addDataPaginationRecreated(obj${delegate_name}Delegate.getDATA_PAGINATION_MAX_RESULTS_DISPLAY(), controllerName, request, "/list" + controllerName
+				+ ${web_constants_name}.URL_EXTENSION, obj${delegate_name}Delegate.totalRecords${domain_name}(${web_utils_name}.getIEstado_flUserOptions(request, controllerName))));
+		List<${table_name}> list = obj${delegate_name}Delegate.listAll${domain_name}(${web_utils_name}.getIEstado_flUserOptions(request, controllerName));
+		List<${controllerName}BeanRecord> recordList = new ArrayList<${controllerName}BeanRecord>();
+		${controllerName}BeanRecord record;
+		if (list != null) {
+			for (${table_name} obj${domain_name} : list) {
+				record = new ${controllerName}BeanRecord();
+				//record.setSelected(${web_utils_name}.UtilsHasChildren(domainName, obj${domain_name}.get${pk_method}()));
+				record.setPkValue(obj${domain_name}.get${pk_method}());
+				${fn:for}
+				record.set${method_name}(${column_display_format});
+				/${fn:for}
+				record.setiEstado_fl(obj${domain_name}.getIEstado_fl());
+				record.setiConcurrencia_id(obj${domain_name}.getIConcurrencia_id());
+				recordList.add(record);
+			}
+		}
+		objBean.setList(recordList);
+		model.addAttribute("objBean", objBean);
+		model.addAttribute("domainName", domainName);
+		model.addAttribute("controllerName", controllerName);
+		model.addAttribute("pkName", "${pk_name}");
+		request.getSession().setAttribute("objBean" + controllerName, objBean);
+		${web_utils_name}.reloadNavigationMenuRecreated(request, controllerName, false);
+        ${web_utils_name}.addDetailOptionsJSP(request, controllerName/*Reserved for Details Domains*/);
+		return "list" + controllerName;
+	}
+	
+	
+	@RequestMapping("/delete" + controllerName)
+	public String delete${controllerName}(@ModelAttribute ${controllerName}Bean objBean, Model model, HttpServletRequest request) {
+		if (objBean != null) {
+			String userId = ${commons_utils_name}.getUserId(request);
+			for (${controllerName}BeanRecord record : objBean.getList()) {
+				if (record.isSelected()) {
+					obj${delegate_name}Delegate.delete${domain_name}(record.getPkValue(), userId, record.getiConcurrencia_id());
+				}
+			}
+		}
+		return "redirect:/list" + controllerName + ${web_constants_name}.URL_EXTENSION;
+	}
+
+	@RequestMapping(value = "/add" + controllerName)
+	public String add${controllerName}(Model model, HttpServletRequest request) {
+		${web_utils_name}.loadResourcesToHeader(request, "/scripts/${webModule_name}/" + controllerName + ".js");
+		${controllerName}Bean objBean = new ${controllerName}Bean();
+		addComboBoxes(model);
+		//Reserved for FK
+		model.addAttribute("domainName", domainName);
+		model.addAttribute("controllerName", controllerName);
+		model.addAttribute("objBean", objBean);
+		return "add" + controllerName;
+	}
+
+	@RequestMapping(value = "/back" + controllerName, method = RequestMethod.GET)
+	public String back${controllerName}(Model model, HttpServletRequest request) {
+		if (${web_utils_name}.refreshBackUrl(request, controllerName)) {
+			return "redirect:/list" + controllerName + ${web_constants_name}.URL_EXTENSION;
+		}
+		model.addAttribute("objBean", request.getSession().getAttribute("objBean" + controllerName));
+		model.addAttribute("domainName", domainName);
+		model.addAttribute("controllerName", controllerName);
+		model.addAttribute("pkName", "${pk_name}");
+		return "list" + controllerName;
+	}
+
+	@RequestMapping("/save" + controllerName)
+	public String save${controllerName}(@ModelAttribute ${controllerName}Bean objBean, Model model, HttpServletRequest request) {
+		if (objBean != null) {
+			boolean isObjectSaved = true;
+            ${pk_type} auxPkValue = objBean.getPkValue();
+			if (objBean.getPkValue() == 0) {
+				${table_name} newObj = obj${delegate_name}Delegate.insert${domain_name}(${commons_utils_name}.getUserId(request)
+				${fn:for}
+					, ${column_recovery_format}
+				/${fn:for}
+				);
+				isObjectSaved = (newObj != null);
+                if (isObjectSaved) {
+                    auxPkValue = newObj.get${pk_method}();
+                }
+			} else {
+				 isObjectSaved = obj${delegate_name}Delegate.update${domain_name}(objBean.getPkValue(), ${commons_utils_name}.getUserId(request), objBean.getiConcurrencia_id()
+				 ${fn:for}
+					, ${column_recovery_format}
+				/${fn:for}
+                );
+			}
+			if (!isObjectSaved) {
+            	return "redirect:/" + ${web_constants_name}.URL_ERROR_OCURRED + "'list" + controllerName + ${web_constants_name}.URL_EXTENSION + "'";
+            }else{
+            	${web_utils_name}.setPageNumberOnRowToFocus(request, obj${delegate_name}Delegate.listAll${domain_name}Pk(${web_utils_name}.getIEstado_flUserOptions(request, controllerName))
+            	.indexOf(auxPkValue), controllerName, obj${delegate_name}Delegate.getDATA_PAGINATION_MAX_RESULTS_DISPLAY());
+            }
+		}
+		return "redirect:/list" + controllerName + ${web_constants_name}.URL_EXTENSION;
+	}
+	
+	@RequestMapping(value = "/update" + controllerName, method = RequestMethod.GET)
+    public String update${controllerName}(@RequestParam(required = true) ${pk_type} pkValue, @RequestParam(required = true) int posInList, Model model, HttpServletRequest request) {
+        ${web_utils_name}.loadResourcesToHeader(request, "/scripts/${webModule_name}/" + controllerName + ".js");
+		${controllerName}Bean objBean = new ${controllerName}Bean();
+		addComboBoxes(model);
+        ${table_name} obj${domain_name} = obj${delegate_name}Delegate.getById${domain_name}(pkValue);
+        objBean.setPkValue(obj${domain_name}.get${pk_method}());
+		${fn:for}
+		objBean.set${method_name}(${column_display_format});
+		/${fn:for}
+		objBean.setiConcurrencia_id(obj${domain_name}.getIConcurrencia_id());
+        model.addAttribute("domainName", domainName);
+        model.addAttribute("controllerName", controllerName);
+        model.addAttribute("objBean", objBean);
+        request.getSession().setAttribute(${web_constants_name}.POSITION_IN_LIST + controllerName, posInList);
+        return "add" + controllerName;
+    }
+    
+    
+    @RequestMapping("/deleteById" + controllerName)
+    public String deleteById${controllerName}(@RequestParam(required = true) int pkValue, @RequestParam(required = true) int posInList, @RequestParam(required = true) int iConcurrencia_id, Model model,
+            HttpServletRequest request) {
+        if (!AppWebUtils.UtilsHasChildren(domainName, pkValue)) {
+	        boolean isObjectDeleted = obj${delegate_name}Delegate.delete${domain_name}(pkValue, ${commons_utils_name}.getUserId(request), iConcurrencia_id);
+	        if (!isObjectDeleted) {
+	            return "redirect:/" + ${web_constants_name}.URL_ERROR_OCURRED + "'list" + controllerName + ${web_constants_name}.URL_EXTENSION + "'";
+	        } else {
+	            if (posInList != 0) {
+	                posInList--;
+	            }
+	            request.getSession().setAttribute(${web_constants_name}.POSITION_IN_LIST + controllerName, posInList);
+	        	return "redirect:/list" + controllerName + ${web_constants_name}.URL_EXTENSION;
+	        }
+        } else {
+			request.getSession().setAttribute(${web_constants_name}.POSITION_IN_LIST + controllerName, posInList);
+			${web_utils_name}.addAlertMessageForHasChildrenException(model, messageSource);
+			return list${controllerName}(model, request);
+		}
+    }
+    
+    public void addComboBoxes(Model model) {
+    ${fn:for}
+		${combobox_display_value}
+	/${fn:for}
+    }
+}

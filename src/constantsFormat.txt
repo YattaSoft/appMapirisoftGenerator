@@ -1,0 +1,9 @@
+package ${ejbPackage_name}.constants;
+
+import ${commonPackage}.constants.${commonConstantsName};
+
+
+public class ${delegate_name}Constants {
+	public static final String PERSISTENCE_UNIT_NAME = "${application_name}${delegate_name}";
+	public static int DATA_PAGINATION_MAX_RESULTS_DISPLAY = ${commonConstantsName}.DATA_PAGINATION_MAX_RESULTS_DISPLAY;
+}

@@ -1,0 +1,43 @@
+	// ${table_name}
+	public List<${table_name}> listAll${domain_name}(Object... iEstado_fl){
+		if(iEstado_fl[0] != null){
+            return objEjbRemote.listAll${domain_name}MD(iEstado_fl[0], ${web_utils_name}.getAllowedEstadosByUser(iEstado_fl));
+        }
+        return objEjbRemote.listAll${domain_name}(${web_utils_name}.getAllowedEstadosByUser(iEstado_fl));
+	}
+	
+	public List<Object> listAll${domain_name}Pk(Object ... iEstado_fl){
+		if(iEstado_fl[0] != null){
+            return objEjbRemote.listAll${domain_name}PkMD(iEstado_fl[0], ${web_utils_name}.getAllowedEstadosByUser(iEstado_fl));
+        }
+        return objEjbRemote.listAll${domain_name}Pk(${web_utils_name}.getAllowedEstadosByUser(iEstado_fl));
+	}
+
+	public long totalRecords${domain_name}(Object... iEstado_fl){
+		if(iEstado_fl[0] != null){
+            return objEjbRemote.totalRecords${domain_name}MD(iEstado_fl[0], ${web_utils_name}.getAllowedEstadosByUser(iEstado_fl));
+        }
+        return objEjbRemote.totalRecords${domain_name}(${web_utils_name}.getAllowedEstadosByUser(iEstado_fl));
+	}
+
+	public ${table_name} insert${domain_name}(String sCreated_by${updateFieldsList}){
+		return objEjbRemote.insert${domain_name}(sCreated_by${updateFieldsListSimple});
+	}
+
+	public boolean update${domain_name}(${pk_type} ${pk_name}, String sCreated_by, int iConcurrencia_id${updateFieldsList}){
+		return objEjbRemote.update${domain_name}(${pk_name}, sCreated_by, iConcurrencia_id${updateFieldsListSimple});
+	}
+
+	public boolean delete${domain_name}(${pk_type} ${pk_name}, String sCreated_by, int iConcurrencia_id) {
+		return objEjbRemote.delete${domain_name}(${pk_name}, sCreated_by, iConcurrencia_id);
+	}
+
+	public ${table_name} getById${domain_name}(${pk_type} ${pk_name}) {
+		return objEjbRemote.getById${domain_name}(${pk_name});
+	}
+	
+	public int getConcurrencyById${domain_name}(${pk_type} ${pk_name}) {
+		return objEjbRemote.getConcurrencyById${domain_name}(${pk_name});
+	}
+	// end ${table_name}
+}

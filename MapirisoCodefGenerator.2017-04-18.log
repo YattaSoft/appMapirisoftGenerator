@@ -1,0 +1,331 @@
+18-abr-2017 10:24:10 INFO  com.apptriggergenerator.triggergenerator.utils.dlgDataBaseConnection.main : Initializing Application ...
+18-abr-2017 10:26:26 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : select schema_name from schemata
+18-abr-2017 10:26:26 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : select table_name from tables where table_schema = 'information_schema'
+18-abr-2017 10:26:26 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : SELECT c.column_name, CONCAT(LCASE(LEFT(c.column_name,1)),SUBSTRING(c.column_name,2)),
+CASE c.is_nullable WHEN 'NO' THEN 'false' ELSE 'true' END nullable, c.data_type, IFNULL(IFNULL(c.CHARACTER_MAXIMUM_LENGTH, c.NUMERIC_PRECISION),0) longitud,
+IFNULL(c.numeric_scale,'0'), c.column_key
+FROM COLUMNS c WHERE c.table_schema = 'information_schema' AND c.table_name = 'CHARACTER_SETS' ORDER BY c.ORDINAL_POSITION
+18-abr-2017 10:26:26 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : select table_name from tables where table_schema = 'information_schema' and table_name <> 'CHARACTER_SETS'
+18-abr-2017 10:26:26 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : select table_name from tables where table_schema = 'information_schema' and table_name <> 'CHARACTER_SETS'
+18-abr-2017 10:26:29 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : select table_name from tables where table_schema = 'appModuloBasico'
+18-abr-2017 10:26:29 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : SELECT c.column_name, CONCAT(LCASE(LEFT(c.column_name,1)),SUBSTRING(c.column_name,2)),
+CASE c.is_nullable WHEN 'NO' THEN 'false' ELSE 'true' END nullable, c.data_type, IFNULL(IFNULL(c.CHARACTER_MAXIMUM_LENGTH, c.NUMERIC_PRECISION),0) longitud,
+IFNULL(c.numeric_scale,'0'), c.column_key
+FROM COLUMNS c WHERE c.table_schema = 'appModuloBasico' AND c.table_name = 'artbl_AEstudiantes' ORDER BY c.ORDINAL_POSITION
+18-abr-2017 10:26:29 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : select table_name from tables where table_schema = 'appModuloBasico' and table_name <> 'artbl_AEstudiantes'
+18-abr-2017 10:26:29 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : select table_name from tables where table_schema = 'appModuloBasico' and table_name <> 'artbl_AEstudiantes'
+18-abr-2017 10:26:29 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : SELECT iModulo_id, sModulo_nm FROM appModuloBasico.ms_tblModulos WHERE iEstado_fl = '01' AND  iEliminado_fl = '01'
+18-abr-2017 10:26:29 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : SELECT iPrograma_id, sPrograma_nm FROM appModuloBasico.ms_tblProgramas WHERE iTPrograma_fl = '02' AND iModulo_id = null ORDER BY iPrograma_order
+18-abr-2017 10:26:30 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : SELECT IFNULL(MAX(iPrograma_order),0) FROM appModuloBasico.ms_tblProgramas WHERE iTPrograma_fl = '04' AND iModulo_id = null
+18-abr-2017 10:26:38 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : SELECT c.column_name, CONCAT(LCASE(LEFT(c.column_name,1)),SUBSTRING(c.column_name,2)),
+CASE c.is_nullable WHEN 'NO' THEN 'false' ELSE 'true' END nullable, c.data_type, IFNULL(IFNULL(c.CHARACTER_MAXIMUM_LENGTH, c.NUMERIC_PRECISION),0) longitud,
+IFNULL(c.numeric_scale,'0'), c.column_key
+FROM COLUMNS c WHERE c.table_schema = 'appModuloBasico' AND c.table_name = 'intbl_DIntegracion' ORDER BY c.ORDINAL_POSITION
+18-abr-2017 10:26:38 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : select table_name from tables where table_schema = 'appModuloBasico' and table_name <> 'intbl_DIntegracion'
+18-abr-2017 10:26:38 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : SELECT IFNULL(MAX(iPrograma_order),0) FROM appModuloBasico.ms_tblProgramas WHERE iTPrograma_fl = '04' AND iModulo_id = null
+18-abr-2017 10:26:38 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : select table_name from tables where table_schema = 'appModuloBasico' and table_name <> 'intbl_DIntegracion'
+18-abr-2017 10:26:39 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : SELECT IFNULL(MAX(iPrograma_order),0) FROM appModuloBasico.ms_tblProgramas WHERE iTPrograma_fl = '04' AND iModulo_id = null
+18-abr-2017 10:26:48 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : SELECT c.column_name, CONCAT(LCASE(LEFT(c.column_name,1)),SUBSTRING(c.column_name,2)),
+CASE c.is_nullable WHEN 'NO' THEN 'false' ELSE 'true' END nullable, c.data_type, IFNULL(IFNULL(c.CHARACTER_MAXIMUM_LENGTH, c.NUMERIC_PRECISION),0) longitud,
+IFNULL(c.numeric_scale,'0'), c.column_key
+FROM COLUMNS c WHERE c.table_schema = 'appModuloBasico' AND c.table_name = 'intbl_Integracion' ORDER BY c.ORDINAL_POSITION
+18-abr-2017 10:26:48 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : select table_name from tables where table_schema = 'appModuloBasico' and table_name <> 'intbl_Integracion'
+18-abr-2017 10:26:48 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : SELECT IFNULL(MAX(iPrograma_order),0) FROM appModuloBasico.ms_tblProgramas WHERE iTPrograma_fl = '04' AND iModulo_id = null
+18-abr-2017 10:26:48 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : select table_name from tables where table_schema = 'appModuloBasico' and table_name <> 'intbl_Integracion'
+18-abr-2017 10:26:48 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : SELECT IFNULL(MAX(iPrograma_order),0) FROM appModuloBasico.ms_tblProgramas WHERE iTPrograma_fl = '04' AND iModulo_id = null
+18-abr-2017 10:27:04 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : SELECT iPrograma_id, sPrograma_nm FROM appModuloBasico.ms_tblProgramas WHERE iTPrograma_fl = '02' AND iModulo_id = 36 ORDER BY iPrograma_order
+18-abr-2017 10:27:04 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : SELECT IFNULL(MAX(iPrograma_order),0) FROM appModuloBasico.ms_tblProgramas WHERE iTPrograma_fl = '04' AND iModulo_id = 36
+18-abr-2017 10:27:13 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : SELECT IFNULL(MAX(iPrograma_order),0) FROM appModuloBasico.ms_tblProgramas WHERE iPrograma_parent = 85
+18-abr-2017 10:27:18 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : SELECT IFNULL(MAX(iPrograma_order),0) FROM appModuloBasico.ms_tblProgramas WHERE iPrograma_parent = 85
+18-abr-2017 10:27:51 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : SELECT c.column_name, CONCAT(LCASE(LEFT(c.column_name,1)),SUBSTRING(c.column_name,2)),
+CASE c.is_nullable WHEN 'NO' THEN 'false' ELSE 'true' END nullable, c.data_type, IFNULL(IFNULL(c.CHARACTER_MAXIMUM_LENGTH, c.NUMERIC_PRECISION),0) longitud,
+IFNULL(c.numeric_scale,'0'), c.column_key
+FROM COLUMNS c WHERE c.table_schema = 'appModuloBasico' AND c.table_name = 'intbl_DTransacciones' ORDER BY c.ORDINAL_POSITION
+18-abr-2017 10:27:51 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : select table_name from tables where table_schema = 'appModuloBasico' and table_name <> 'intbl_DTransacciones'
+18-abr-2017 10:27:51 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : SELECT IFNULL(MAX(iPrograma_order),0) FROM appModuloBasico.ms_tblProgramas WHERE iPrograma_parent = 85
+18-abr-2017 10:27:51 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : select table_name from tables where table_schema = 'appModuloBasico' and table_name <> 'intbl_DTransacciones'
+18-abr-2017 10:27:52 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : SELECT IFNULL(MAX(iPrograma_order),0) FROM appModuloBasico.ms_tblProgramas WHERE iPrograma_parent = 85
+18-abr-2017 10:36:22 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : SELECT c.column_name, CONCAT(LCASE(LEFT(c.column_name,1)),SUBSTRING(c.column_name,2)),
+CASE c.is_nullable WHEN 'NO' THEN 'false' ELSE 'true' END nullable, c.data_type, IFNULL(IFNULL(c.CHARACTER_MAXIMUM_LENGTH, c.NUMERIC_PRECISION),0) longitud,
+IFNULL(c.numeric_scale,'0'), c.column_key
+FROM COLUMNS c WHERE c.table_schema = 'appModuloBasico' AND c.table_name = 'intbl_DIntegracion' ORDER BY c.ORDINAL_POSITION
+18-abr-2017 10:36:22 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : select table_name from tables where table_schema = 'appModuloBasico' and table_name <> 'intbl_DIntegracion'
+18-abr-2017 10:36:22 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : SELECT IFNULL(MAX(iPrograma_order),0) FROM appModuloBasico.ms_tblProgramas WHERE iPrograma_parent = 85
+18-abr-2017 10:36:22 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : select table_name from tables where table_schema = 'appModuloBasico' and table_name <> 'intbl_DIntegracion'
+18-abr-2017 10:36:22 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : SELECT IFNULL(MAX(iPrograma_order),0) FROM appModuloBasico.ms_tblProgramas WHERE iPrograma_parent = 85
+18-abr-2017 10:36:28 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : SELECT c.column_name, CONCAT(LCASE(LEFT(c.column_name,1)),SUBSTRING(c.column_name,2)),
+CASE c.is_nullable WHEN 'NO' THEN 'false' ELSE 'true' END nullable, c.data_type, IFNULL(IFNULL(c.CHARACTER_MAXIMUM_LENGTH, c.NUMERIC_PRECISION),0) longitud,
+IFNULL(c.numeric_scale,'0'), c.column_key
+FROM COLUMNS c WHERE c.table_schema = 'appModuloBasico' AND c.table_name = 'intbl_DIntegracion' ORDER BY c.ORDINAL_POSITION
+18-abr-2017 10:36:28 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : select table_name from tables where table_schema = 'appModuloBasico' and table_name <> 'intbl_DIntegracion'
+18-abr-2017 10:36:28 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : SELECT IFNULL(MAX(iPrograma_order),0) FROM appModuloBasico.ms_tblProgramas WHERE iPrograma_parent = 85
+18-abr-2017 10:36:28 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : select table_name from tables where table_schema = 'appModuloBasico' and table_name <> 'intbl_DIntegracion'
+18-abr-2017 10:36:28 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : SELECT IFNULL(MAX(iPrograma_order),0) FROM appModuloBasico.ms_tblProgramas WHERE iPrograma_parent = 85
+18-abr-2017 10:36:41 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : select table_name from tables where table_schema = 'appModuloBasico' and table_name <> 'intbl_DIntegracion'
+18-abr-2017 10:36:41 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : SELECT IFNULL(MAX(iPrograma_order),0) FROM appModuloBasico.ms_tblProgramas WHERE iPrograma_parent = 85
+18-abr-2017 10:37:05 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : SELECT COLUMN_NAME FROM COLUMNS WHERE TABLE_SCHEMA = 'appModuloBasico' AND TABLE_NAME = 'intbl_Integracion' AND COLUMN_KEY = 'PRI'
+18-abr-2017 10:37:13 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : SELECT IFNULL(MAX(iPrograma_order),0) FROM appModuloBasico.ms_tblProgramas WHERE iPrograma_parent = 85
+18-abr-2017 10:37:17 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : SELECT iPrograma_id, sPrograma_nm FROM appModuloBasico.ms_tblProgramas WHERE iTPrograma_fl = '02' AND iModulo_id = 33 ORDER BY iPrograma_order
+18-abr-2017 10:37:19 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : SELECT iPrograma_id, sPrograma_nm FROM appModuloBasico.ms_tblProgramas WHERE iTPrograma_fl = '02' AND iModulo_id = 36 ORDER BY iPrograma_order
+18-abr-2017 10:37:32 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : SELECT IFNULL(MAX(iPrograma_order),0) FROM appModuloBasico.ms_tblProgramas WHERE iTPrograma_fl = '04' AND iModulo_id = 36
+18-abr-2017 10:37:55 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : SELECT c.column_name, CONCAT(LCASE(LEFT(c.column_name,1)),SUBSTRING(c.column_name,2)),
+CASE c.is_nullable WHEN 'NO' THEN 'false' ELSE 'true' END nullable, c.data_type, IFNULL(IFNULL(c.CHARACTER_MAXIMUM_LENGTH, c.NUMERIC_PRECISION),0) longitud,
+IFNULL(c.numeric_scale,'0'), c.column_key
+FROM COLUMNS c WHERE c.table_schema = 'appModuloBasico' AND c.table_name = 'intbl_DTransacciones' ORDER BY c.ORDINAL_POSITION
+18-abr-2017 10:37:55 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : select table_name from tables where table_schema = 'appModuloBasico' and table_name <> 'intbl_DTransacciones'
+18-abr-2017 10:37:55 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : select table_name from tables where table_schema = 'appModuloBasico' and table_name <> 'intbl_DTransacciones'
+18-abr-2017 10:38:04 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : SELECT IFNULL(MAX(iPrograma_order),0) FROM appModuloBasico.ms_tblProgramas WHERE iTPrograma_fl = '04' AND iModulo_id = 36
+18-abr-2017 10:38:11 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : SELECT iPrograma_id, sPrograma_nm FROM appModuloBasico.ms_tblProgramas WHERE iTPrograma_fl = '02' AND iModulo_id = 33 ORDER BY iPrograma_order
+18-abr-2017 10:38:11 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : SELECT IFNULL(MAX(iPrograma_order),0) FROM appModuloBasico.ms_tblProgramas WHERE iTPrograma_fl = '04' AND iModulo_id = 33
+18-abr-2017 10:38:13 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : SELECT iPrograma_id, sPrograma_nm FROM appModuloBasico.ms_tblProgramas WHERE iTPrograma_fl = '02' AND iModulo_id = 36 ORDER BY iPrograma_order
+18-abr-2017 10:38:13 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : SELECT IFNULL(MAX(iPrograma_order),0) FROM appModuloBasico.ms_tblProgramas WHERE iTPrograma_fl = '04' AND iModulo_id = 36
+18-abr-2017 10:38:15 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : SELECT IFNULL(MAX(iPrograma_order),0) FROM appModuloBasico.ms_tblProgramas WHERE iTPrograma_fl = '04' AND iModulo_id = 36
+18-abr-2017 10:38:36 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : SELECT IFNULL(MAX(iPrograma_order),0) FROM appModuloBasico.ms_tblProgramas WHERE iPrograma_parent = 85
+18-abr-2017 14:07:29 INFO  com.apptriggergenerator.triggergenerator.utils.dlgDataBaseConnection.main : Initializing Application ...
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : Exception found : Access denied for user 'cromisoft'@'localhost' (using password: YES)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : Cause : null
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : Message : Access denied for user 'cromisoft'@'localhost' (using password: YES)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : ***********************
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1073)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3597)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3529)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:935)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : com.mysql.jdbc.MysqlIO.secureAuth411(MysqlIO.java:4101)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : com.mysql.jdbc.MysqlIO.doHandshake(MysqlIO.java:1300)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : com.mysql.jdbc.ConnectionImpl.coreConnect(ConnectionImpl.java:2337)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2370)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2154)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : com.mysql.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:792)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : com.mysql.jdbc.JDBC4Connection.<init>(JDBC4Connection.java:47)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.lang.reflect.Constructor.newInstance(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : com.mysql.jdbc.Util.handleNewInstance(Util.java:411)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:381)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:305)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.sql.DriverManager.getConnection(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.sql.DriverManager.getConnection(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : com.apptriggergenerator.triggergenerator.utils.clsConexion.Conectar2(clsConexion.java:44)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : com.apptriggergenerator.triggergenerator.utils.frmMapirisoftGenerator.Conectar_Base_Datos(frmMapirisoftGenerator.java:153)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : com.apptriggergenerator.triggergenerator.utils.frmMapirisoftGenerator.<init>(frmMapirisoftGenerator.java:140)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : com.apptriggergenerator.triggergenerator.utils.dlgDataBaseConnection.jButton0ActionActionPerformed(dlgDataBaseConnection.java:224)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : com.apptriggergenerator.triggergenerator.utils.dlgDataBaseConnection.access$1(dlgDataBaseConnection.java:220)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : com.apptriggergenerator.triggergenerator.utils.dlgDataBaseConnection$2.actionPerformed(dlgDataBaseConnection.java:200)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : javax.swing.AbstractButton.fireActionPerformed(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : javax.swing.AbstractButton$Handler.actionPerformed(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : javax.swing.DefaultButtonModel.fireActionPerformed(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : javax.swing.DefaultButtonModel.setPressed(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : javax.swing.plaf.basic.BasicButtonListener.mouseReleased(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.Component.processMouseEvent(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : javax.swing.JComponent.processMouseEvent(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.Component.processEvent(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.Container.processEvent(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.Component.dispatchEventImpl(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.Container.dispatchEventImpl(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.Component.dispatchEvent(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.LightweightDispatcher.retargetMouseEvent(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.LightweightDispatcher.processMouseEvent(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.LightweightDispatcher.dispatchEvent(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.Container.dispatchEventImpl(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.Window.dispatchEventImpl(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.Component.dispatchEvent(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.EventQueue.dispatchEventImpl(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.EventQueue.access$400(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.EventQueue$2.run(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.EventQueue$2.run(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.security.AccessController.doPrivileged(Native Method)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.security.AccessControlContext$1.doIntersectionPrivilege(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.security.AccessControlContext$1.doIntersectionPrivilege(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.EventQueue$3.run(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.EventQueue$3.run(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.security.AccessController.doPrivileged(Native Method)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.security.AccessControlContext$1.doIntersectionPrivilege(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.EventQueue.dispatchEvent(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.EventDispatchThread.pumpOneEventForFilters(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.EventDispatchThread.pumpEventsForFilter(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.EventDispatchThread.pumpEventsForHierarchy(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.EventDispatchThread.run(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : ***********************
+18-abr-2017 14:07:44 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : select schema_name from schemata
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : Exception found : Access denied for user 'cromisoft'@'localhost' (using password: YES)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : Cause : null
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : Message : Access denied for user 'cromisoft'@'localhost' (using password: YES)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : ***********************
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1073)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3597)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3529)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:935)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : com.mysql.jdbc.MysqlIO.secureAuth411(MysqlIO.java:4101)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : com.mysql.jdbc.MysqlIO.doHandshake(MysqlIO.java:1300)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : com.mysql.jdbc.ConnectionImpl.coreConnect(ConnectionImpl.java:2337)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2370)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2154)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : com.mysql.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:792)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : com.mysql.jdbc.JDBC4Connection.<init>(JDBC4Connection.java:47)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.lang.reflect.Constructor.newInstance(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : com.mysql.jdbc.Util.handleNewInstance(Util.java:411)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:381)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:305)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.sql.DriverManager.getConnection(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.sql.DriverManager.getConnection(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : com.apptriggergenerator.triggergenerator.utils.clsConexion.Conectar(clsConexion.java:32)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar(clsConexion.java:74)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : com.apptriggergenerator.triggergenerator.utils.clsBase.Consulta_General(clsBase.java:1008)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : com.apptriggergenerator.triggergenerator.utils.frmMapirisoftGenerator.Cargar_Bases_Datos(frmMapirisoftGenerator.java:162)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : com.apptriggergenerator.triggergenerator.utils.frmMapirisoftGenerator.<init>(frmMapirisoftGenerator.java:142)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : com.apptriggergenerator.triggergenerator.utils.dlgDataBaseConnection.jButton0ActionActionPerformed(dlgDataBaseConnection.java:224)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : com.apptriggergenerator.triggergenerator.utils.dlgDataBaseConnection.access$1(dlgDataBaseConnection.java:220)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : com.apptriggergenerator.triggergenerator.utils.dlgDataBaseConnection$2.actionPerformed(dlgDataBaseConnection.java:200)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : javax.swing.AbstractButton.fireActionPerformed(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : javax.swing.AbstractButton$Handler.actionPerformed(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : javax.swing.DefaultButtonModel.fireActionPerformed(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : javax.swing.DefaultButtonModel.setPressed(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : javax.swing.plaf.basic.BasicButtonListener.mouseReleased(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.Component.processMouseEvent(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : javax.swing.JComponent.processMouseEvent(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.Component.processEvent(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.Container.processEvent(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.Component.dispatchEventImpl(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.Container.dispatchEventImpl(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.Component.dispatchEvent(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.LightweightDispatcher.retargetMouseEvent(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.LightweightDispatcher.processMouseEvent(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.LightweightDispatcher.dispatchEvent(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.Container.dispatchEventImpl(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.Window.dispatchEventImpl(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.Component.dispatchEvent(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.EventQueue.dispatchEventImpl(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.EventQueue.access$400(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.EventQueue$2.run(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.EventQueue$2.run(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.security.AccessController.doPrivileged(Native Method)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.security.AccessControlContext$1.doIntersectionPrivilege(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.security.AccessControlContext$1.doIntersectionPrivilege(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.EventQueue$3.run(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.EventQueue$3.run(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.security.AccessController.doPrivileged(Native Method)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.security.AccessControlContext$1.doIntersectionPrivilege(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.EventQueue.dispatchEvent(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.EventDispatchThread.pumpOneEventForFilters(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.EventDispatchThread.pumpEventsForFilter(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.EventDispatchThread.pumpEventsForHierarchy(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.EventDispatchThread.run(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : ***********************
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : Exception found : null
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : Cause : null
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : Message : null
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : ***********************
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar(clsConexion.java:75)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : com.apptriggergenerator.triggergenerator.utils.clsBase.Consulta_General(clsBase.java:1008)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : com.apptriggergenerator.triggergenerator.utils.frmMapirisoftGenerator.Cargar_Bases_Datos(frmMapirisoftGenerator.java:162)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : com.apptriggergenerator.triggergenerator.utils.frmMapirisoftGenerator.<init>(frmMapirisoftGenerator.java:142)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : com.apptriggergenerator.triggergenerator.utils.dlgDataBaseConnection.jButton0ActionActionPerformed(dlgDataBaseConnection.java:224)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : com.apptriggergenerator.triggergenerator.utils.dlgDataBaseConnection.access$1(dlgDataBaseConnection.java:220)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : com.apptriggergenerator.triggergenerator.utils.dlgDataBaseConnection$2.actionPerformed(dlgDataBaseConnection.java:200)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : javax.swing.AbstractButton.fireActionPerformed(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : javax.swing.AbstractButton$Handler.actionPerformed(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : javax.swing.DefaultButtonModel.fireActionPerformed(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : javax.swing.DefaultButtonModel.setPressed(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : javax.swing.plaf.basic.BasicButtonListener.mouseReleased(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.Component.processMouseEvent(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : javax.swing.JComponent.processMouseEvent(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.Component.processEvent(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.Container.processEvent(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.Component.dispatchEventImpl(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.Container.dispatchEventImpl(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.Component.dispatchEvent(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.LightweightDispatcher.retargetMouseEvent(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.LightweightDispatcher.processMouseEvent(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.LightweightDispatcher.dispatchEvent(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.Container.dispatchEventImpl(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.Window.dispatchEventImpl(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.Component.dispatchEvent(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.EventQueue.dispatchEventImpl(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.EventQueue.access$400(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.EventQueue$2.run(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.EventQueue$2.run(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.security.AccessController.doPrivileged(Native Method)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.security.AccessControlContext$1.doIntersectionPrivilege(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.security.AccessControlContext$1.doIntersectionPrivilege(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.EventQueue$3.run(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.EventQueue$3.run(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.security.AccessController.doPrivileged(Native Method)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.security.AccessControlContext$1.doIntersectionPrivilege(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.EventQueue.dispatchEvent(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.EventDispatchThread.pumpOneEventForFilters(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.EventDispatchThread.pumpEventsForFilter(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.EventDispatchThread.pumpEventsForHierarchy(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : java.awt.EventDispatchThread.run(Unknown Source)
+18-abr-2017 14:07:44 ERROR com.apptriggergenerator.listcontrollers.utils.ConfigManager.printException : ***********************
+18-abr-2017 14:07:56 INFO  com.apptriggergenerator.triggergenerator.utils.dlgDataBaseConnection.main : Initializing Application ...
+18-abr-2017 14:08:10 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : select schema_name from schemata
+18-abr-2017 14:08:10 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : select table_name from tables where table_schema = 'information_schema'
+18-abr-2017 14:08:10 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : SELECT c.column_name, CONCAT(LCASE(LEFT(c.column_name,1)),SUBSTRING(c.column_name,2)),
+CASE c.is_nullable WHEN 'NO' THEN 'false' ELSE 'true' END nullable, c.data_type, IFNULL(IFNULL(c.CHARACTER_MAXIMUM_LENGTH, c.NUMERIC_PRECISION),0) longitud,
+IFNULL(c.numeric_scale,'0'), c.column_key
+FROM COLUMNS c WHERE c.table_schema = 'information_schema' AND c.table_name = 'CHARACTER_SETS' ORDER BY c.ORDINAL_POSITION
+18-abr-2017 14:08:10 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : select table_name from tables where table_schema = 'information_schema' and table_name <> 'CHARACTER_SETS'
+18-abr-2017 14:08:10 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : select table_name from tables where table_schema = 'information_schema' and table_name <> 'CHARACTER_SETS'
+18-abr-2017 14:08:13 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : select table_name from tables where table_schema = 'appmodulobasico'
+18-abr-2017 14:08:13 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : SELECT c.column_name, CONCAT(LCASE(LEFT(c.column_name,1)),SUBSTRING(c.column_name,2)),
+CASE c.is_nullable WHEN 'NO' THEN 'false' ELSE 'true' END nullable, c.data_type, IFNULL(IFNULL(c.CHARACTER_MAXIMUM_LENGTH, c.NUMERIC_PRECISION),0) longitud,
+IFNULL(c.numeric_scale,'0'), c.column_key
+FROM COLUMNS c WHERE c.table_schema = 'appmodulobasico' AND c.table_name = 'artbl_aestudiantes' ORDER BY c.ORDINAL_POSITION
+18-abr-2017 14:08:13 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : select table_name from tables where table_schema = 'appmodulobasico' and table_name <> 'artbl_aestudiantes'
+18-abr-2017 14:08:13 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : select table_name from tables where table_schema = 'appmodulobasico' and table_name <> 'artbl_aestudiantes'
+18-abr-2017 14:08:13 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : SELECT iModulo_id, sModulo_nm FROM appmodulobasico.ms_tblModulos WHERE iEstado_fl = '01' AND  iEliminado_fl = '01'
+18-abr-2017 14:08:13 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : SELECT iPrograma_id, sPrograma_nm FROM appmodulobasico.ms_tblProgramas WHERE iTPrograma_fl = '02' AND iModulo_id = null ORDER BY iPrograma_order
+18-abr-2017 14:08:13 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : SELECT IFNULL(MAX(iPrograma_order),0) FROM appmodulobasico.ms_tblProgramas WHERE iTPrograma_fl = '04' AND iModulo_id = null
+18-abr-2017 14:08:25 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : SELECT c.column_name, CONCAT(LCASE(LEFT(c.column_name,1)),SUBSTRING(c.column_name,2)),
+CASE c.is_nullable WHEN 'NO' THEN 'false' ELSE 'true' END nullable, c.data_type, IFNULL(IFNULL(c.CHARACTER_MAXIMUM_LENGTH, c.NUMERIC_PRECISION),0) longitud,
+IFNULL(c.numeric_scale,'0'), c.column_key
+FROM COLUMNS c WHERE c.table_schema = 'appmodulobasico' AND c.table_name = 'intbl_integracion' ORDER BY c.ORDINAL_POSITION
+18-abr-2017 14:08:25 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : select table_name from tables where table_schema = 'appmodulobasico' and table_name <> 'intbl_integracion'
+18-abr-2017 14:08:25 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : SELECT IFNULL(MAX(iPrograma_order),0) FROM appmodulobasico.ms_tblProgramas WHERE iTPrograma_fl = '04' AND iModulo_id = null
+18-abr-2017 14:08:25 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : select table_name from tables where table_schema = 'appmodulobasico' and table_name <> 'intbl_integracion'
+18-abr-2017 14:08:25 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : SELECT IFNULL(MAX(iPrograma_order),0) FROM appmodulobasico.ms_tblProgramas WHERE iTPrograma_fl = '04' AND iModulo_id = null
+18-abr-2017 14:08:33 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : SELECT IFNULL(MAX(iPrograma_order),0) FROM appmodulobasico.ms_tblProgramas WHERE iTPrograma_fl = '04' AND iModulo_id = null
+18-abr-2017 14:08:36 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : SELECT iPrograma_id, sPrograma_nm FROM appmodulobasico.ms_tblProgramas WHERE iTPrograma_fl = '02' AND iModulo_id = 36 ORDER BY iPrograma_order
+18-abr-2017 14:08:36 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : SELECT IFNULL(MAX(iPrograma_order),0) FROM appmodulobasico.ms_tblProgramas WHERE iTPrograma_fl = '04' AND iModulo_id = 36
+18-abr-2017 14:08:42 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : SELECT IFNULL(MAX(iPrograma_order),0) FROM appmodulobasico.ms_tblProgramas WHERE iPrograma_parent = 85
+18-abr-2017 14:09:06 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : SELECT c.column_name, CONCAT(LCASE(LEFT(c.column_name,1)),SUBSTRING(c.column_name,2)),
+CASE c.is_nullable WHEN 'NO' THEN 'false' ELSE 'true' END nullable, c.data_type, IFNULL(IFNULL(c.CHARACTER_MAXIMUM_LENGTH, c.NUMERIC_PRECISION),0) longitud,
+IFNULL(c.numeric_scale,'0'), c.column_key
+FROM COLUMNS c WHERE c.table_schema = 'appmodulobasico' AND c.table_name = 'intbl_dintegracion' ORDER BY c.ORDINAL_POSITION
+18-abr-2017 14:09:06 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : select table_name from tables where table_schema = 'appmodulobasico' and table_name <> 'intbl_dintegracion'
+18-abr-2017 14:09:06 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : select table_name from tables where table_schema = 'appmodulobasico' and table_name <> 'intbl_dintegracion'
+18-abr-2017 14:09:10 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : select table_name from tables where table_schema = 'appmodulobasico' and table_name <> 'intbl_dintegracion'
+18-abr-2017 14:09:13 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : SELECT IFNULL(MAX(iPrograma_order),0) FROM appmodulobasico.ms_tblProgramas WHERE iPrograma_parent = 85
+18-abr-2017 14:09:19 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : SELECT IFNULL(MAX(iPrograma_order),0) FROM appmodulobasico.ms_tblProgramas WHERE iPrograma_parent = 85
+18-abr-2017 14:09:21 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : SELECT IFNULL(MAX(iPrograma_order),0) FROM appmodulobasico.ms_tblProgramas WHERE iPrograma_parent = 85
+18-abr-2017 14:09:40 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : SELECT COLUMN_NAME FROM COLUMNS WHERE TABLE_SCHEMA = 'appmodulobasico' AND TABLE_NAME = 'intbl_integracion' AND COLUMN_KEY = 'PRI'
+18-abr-2017 14:09:43 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : SELECT IFNULL(MAX(iPrograma_order),0) FROM appmodulobasico.ms_tblProgramas WHERE iPrograma_parent = 85
+18-abr-2017 14:09:53 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : SELECT IFNULL(MAX(iPrograma_order),0) FROM appmodulobasico.ms_tblProgramas WHERE iTPrograma_fl = '04' AND iModulo_id = 36
+18-abr-2017 14:10:27 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : SELECT c.column_name, CONCAT(LCASE(LEFT(c.column_name,1)),SUBSTRING(c.column_name,2)),
+CASE c.is_nullable WHEN 'NO' THEN 'false' ELSE 'true' END nullable, c.data_type, IFNULL(IFNULL(c.CHARACTER_MAXIMUM_LENGTH, c.NUMERIC_PRECISION),0) longitud,
+IFNULL(c.numeric_scale,'0'), c.column_key
+FROM COLUMNS c WHERE c.table_schema = 'appmodulobasico' AND c.table_name = 'intbl_dtransacciones' ORDER BY c.ORDINAL_POSITION
+18-abr-2017 14:10:27 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : select table_name from tables where table_schema = 'appmodulobasico' and table_name <> 'intbl_dtransacciones'
+18-abr-2017 14:10:27 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : select table_name from tables where table_schema = 'appmodulobasico' and table_name <> 'intbl_dtransacciones'
+18-abr-2017 14:10:31 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : SELECT IFNULL(MAX(iPrograma_order),0) FROM appmodulobasico.ms_tblProgramas WHERE iTPrograma_fl = '04' AND iModulo_id = 36
+18-abr-2017 14:10:35 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : SELECT IFNULL(MAX(iPrograma_order),0) FROM appmodulobasico.ms_tblProgramas WHERE iPrograma_parent = 85
+18-abr-2017 14:10:36 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : SELECT IFNULL(MAX(iPrograma_order),0) FROM appmodulobasico.ms_tblProgramas WHERE iPrograma_parent = 85
+18-abr-2017 14:11:25 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : SELECT c.column_name, CONCAT(LCASE(LEFT(c.column_name,1)),SUBSTRING(c.column_name,2)),
+CASE c.is_nullable WHEN 'NO' THEN 'false' ELSE 'true' END nullable, c.data_type, IFNULL(IFNULL(c.CHARACTER_MAXIMUM_LENGTH, c.NUMERIC_PRECISION),0) longitud,
+IFNULL(c.numeric_scale,'0'), c.column_key
+FROM COLUMNS c WHERE c.table_schema = 'appmodulobasico' AND c.table_name = 'intbl_integracion' ORDER BY c.ORDINAL_POSITION
+18-abr-2017 14:11:25 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : select table_name from tables where table_schema = 'appmodulobasico' and table_name <> 'intbl_integracion'
+18-abr-2017 14:11:25 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : SELECT IFNULL(MAX(iPrograma_order),0) FROM appmodulobasico.ms_tblProgramas WHERE iPrograma_parent = 85
+18-abr-2017 14:11:26 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : select table_name from tables where table_schema = 'appmodulobasico' and table_name <> 'intbl_integracion'
+18-abr-2017 14:11:26 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : SELECT IFNULL(MAX(iPrograma_order),0) FROM appmodulobasico.ms_tblProgramas WHERE iPrograma_parent = 85
+18-abr-2017 14:11:30 INFO  com.apptriggergenerator.triggergenerator.utils.clsConexion.Consultar : SELECT IFNULL(MAX(iPrograma_order),0) FROM appmodulobasico.ms_tblProgramas WHERE iPrograma_parent = 85

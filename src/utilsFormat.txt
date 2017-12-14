@@ -1,0 +1,5 @@
+package ${ejbPackage_name}.utility;
+
+public class ${delegate_name}Utils {
+
+}

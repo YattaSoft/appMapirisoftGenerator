@@ -1,0 +1,6 @@
+.settings
+.svn
+.log
+.classpath
+.project
+/bin/

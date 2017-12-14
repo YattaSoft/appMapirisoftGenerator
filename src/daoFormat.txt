@@ -1,0 +1,34 @@
+package ${ejbPackage_name}.dao;
+
+import java.util.Calendar;
+import java.math.BigDecimal;
+import java.util.List;
+
+import ${domainPackage}.${table_name};
+
+public interface ${domain_name}Dao {
+
+	public List<${table_name}> listAll(String iEliminado_fl, String ... iEstado_fl);
+	
+	public List<Object> listAllPk(String iEliminado_fl, String ... iEstado_fl);
+	
+	public long countTotalRecords(String iEliminado_fl, String ... iEstado_fl);
+
+	public int updateByQuery(${pk_type} ${pk_name}, String sCreated_by, int iConcurrencia_id${updateFieldsList});
+
+	public ${table_name} save(${table_name} newObject);
+
+	public int getConcurrencyById(${pk_type} ${pk_name});
+
+	public int deleteLogicalByQuery(${pk_type} ${pk_name}, String iEliminado_fl, String sCreated_by, int iConcurrencia_id);
+
+	public ${table_name} getById(${pk_type} ${pk_name});
+	
+	// Master Detail
+	public List<${table_name}> listAllMD(Object mdPkValue, String iEliminado_fl, String ... iEstado_fl);
+	
+	public List<Object> listAllPkMD(Object mdPkValue, String iEliminado_fl, String ... iEstado_fl);
+	
+	public long countTotalRecordsMD(Object mdPkValue, String iEliminado_fl, String ... iEstado_fl);
+
+}

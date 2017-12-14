@@ -1,0 +1,39 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<form:form method="post" action="save${controllerName}.html" commandName="objBean" onsubmit="return validate${controllerName}()">
+	<div id="principal_add">
+		<c:if test="${!empty ParentDomainVariable${controller_Name}PkLabel}">
+			<div class="css_add_back">
+				<spring:message code="${controllerName}.label.list.title" /> <input class="css_sub_tabla tiptip" type="button" value="${ParentDomainVariable${controller_Name}PkLabel}" onclick="openLocation('${ParentDomainVariable${controller_Name}BackUrl}')" title="<spring:message code="${parent_domain_name}.title.button.back" />"  />
+			</div>
+		</c:if>
+		<div class="css_volver">
+			<input type="button" value="<spring:message code="common.label.button.cancel" />" onclick="openLocation('back${controllerName}.html')"
+				title="<spring:message code="${controllerName}.title.button.cancel" />" />
+		</div>
+		<div class="css_formulario">
+			<form:hidden path="pkValue" />
+			<form:hidden path="iConcurrencia_id" />
+			<table>
+				<tr>
+					<td id="titulo_add">
+						<c:if test="${objBean.pkValue == 0}">
+							<spring:message code="${controllerName}.label.add.title" />
+						</c:if>
+						<c:if test="${objBean.pkValue != 0}">
+							<spring:message code="${controllerName}.label.modify.title" />
+						</c:if>
+					</td>
+					<td id="save">
+						<input type="submit" value="<spring:message code="common.label.button.save" />" title="<spring:message code="${controllerName}.title.button.save" />" />
+					</td>
+				</tr>
+			${fn:for}
+				${add_jsp_form_content}
+			/${fn:for}
+			</table>
+		</div>
+	</div>
+</form:form>

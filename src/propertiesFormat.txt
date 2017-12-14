@@ -1,0 +1,28 @@
+#web-application-config.xml
+#<value>${domain_name}/${domain_name}</value>
+#list${domain_name}
+${domain_name}.label.options.parent=${domain_name}
+${domain_name}.label.list.title=Listado de ${domain_name}
+${domain_name}.title.button.add=Permite crear un nuevo ${domain_name}
+${domain_name}.title.button.modify=Permite modificar este ${domain_name}
+${domain_name}.title.button.delete=Elimina los ${domain_name} seleccionados
+${domain_name}.title.button.checkbox=Seleccione este control si desea eliminar este ${domain_name}
+${domain_name}.title.button.back=Vuelve a la lista de ${domain_name}
+#labels
+${fn:for}
+${domain_name}.table.label.${column_name}=${column_name}
+/${fn:for}
+#end labels
+#list${domain_name}
+
+#add${domain_name}
+${domain_name}.label.add.title=Registrar ${domain_name}
+${domain_name}.label.modify.title=Modificar ${domain_name}
+${domain_name}.title.button.save=Guarda el nuevo ${domain_name}
+${domain_name}.title.button.cancel=Redirecciona a la pagina de listar ${domain_name}
+#titles
+${fn:for}
+${domain_name}.addform.titles.${column_name}=${column_name} del add${domain_name}
+/${fn:for}
+#end titles
+#end add${domain_name}

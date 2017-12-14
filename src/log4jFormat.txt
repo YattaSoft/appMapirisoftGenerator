@@ -1,0 +1,19 @@
+log4j.rootLogger=WARN,SO_${caps_application_name}_${module_name_caps}
+
+log4j.appender.SO_${caps_application_name}_${module_name_caps}=org.apache.log4j.ConsoleAppender
+log4j.appender.SO_${caps_application_name}_${module_name_caps}.layout=org.apache.log4j.PatternLayout
+log4j.appender.SO_${caps_application_name}_${module_name_caps}.layout.ConversionPattern=%d{dd-MMM-yyyy HH:mm:ss} %-5p %C.%M : %m%n
+
+log4j.appender.LF_${caps_application_name}_${module_name_caps}=org.apache.log4j.CompositeRollingAppender
+log4j.appender.LF_${caps_application_name}_${module_name_caps}.LogFileName=/opt/Mapirisoft/${caps_application_name}/LOGS/EJB/${delegate_name}.log
+log4j.appender.LF_${caps_application_name}_${module_name_caps}.DatePattern='.'yyyy-MM-dd 
+log4j.appender.LF_${caps_application_name}_${module_name_caps}.RollingStyle=3
+log4j.appender.LF_${caps_application_name}_${module_name_caps}.Append=true
+log4j.appender.LF_${caps_application_name}_${module_name_caps}.MaxFileSize=100000000
+log4j.appender.LF_${caps_application_name}_${module_name_caps}.MaxBackupIndex=200
+log4j.appender.LF_${caps_application_name}_${module_name_caps}.MaxSizeRollBackups=200
+log4j.appender.LF_${caps_application_name}_${module_name_caps}.layout=org.apache.log4j.PatternLayout
+log4j.appender.LF_${caps_application_name}_${module_name_caps}.layout.ConversionPattern=%d{dd-MMM-yyyy HH:mm:ss} %-5p %C.%M : %m%n
+
+log4j.logger.${ejbPackage_name}=INFO,LF_${caps_application_name}_${module_name_caps},SO_${caps_application_name}_${module_name_caps}
+log4j.additivity.${ejbPackage_name}=false
